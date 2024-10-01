@@ -18,8 +18,6 @@ const App: React.FC = () => {
     listIndex: number;
     cardIndex: number;
   } | null>(null);
-  const [isEditingCard, setIsEditingCard] = useState<boolean>(false);
-  const [isEditingList, setIsEditingList] = useState<boolean>(false);
 
   // Add a new list
   const addList = () => {
@@ -48,7 +46,7 @@ const App: React.FC = () => {
   // Edit the list title
   const editListTitle = (listIndex: number) => {
     setEditingListIndex(listIndex);
-    setIsEditingList(true);
+    setEditingList(true);
   };
 
   // Save the edited list title
@@ -57,13 +55,13 @@ const App: React.FC = () => {
     updatedLists[listIndex].title = newTitle;
     setLists(updatedLists);
     setEditingListIndex(null);
-    setIsEditingList(false);
+    setEditingList(false);
   };
 
   // Edit card text
   const editCard = (listIndex: number, cardIndex: number) => {
     setEditingCard({ listIndex, cardIndex });
-    setIsEditingCard(true);
+    setEditingCard(true);
   };
 
   // Save card text
@@ -76,7 +74,7 @@ const App: React.FC = () => {
     updatedLists[listIndex].cards[cardIndex].text = newText;
     setLists(updatedLists);
     setEditingCard(null);
-    setIsEditingCard(false);
+    setEditingCard(false);
   };
 
   // Delete card
